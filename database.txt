@@ -1,0 +1,18 @@
+CREATE TABLE work_instance (
+    type VARCHAR(255),
+    date_complete DATE,
+    hours INT,
+    status VARCHAR(255),
+    title VARCHAR(255) UNIQUE,
+    molecule VARCHAR(255),
+    author VARCHAR(255),
+    original_deadline DATE,
+    notes TEXT,
+    assigned_user VARCHAR(255),
+    completed BOOLEAN,
+    deadline_status VARCHAR(255),
+    file_content BYTEA,
+    edited_file_content BYTEA,
+    assigned_by VARCHAR(255),
+    serial_ID SERIAL PRIMARY KEY
+);
