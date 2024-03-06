@@ -1,7 +1,7 @@
 CREATE TABLE work_instance (
     type VARCHAR(255),
     date_complete DATE,
-    hours INT,
+    hours VARCHAR(255),
     status VARCHAR(255),
     title VARCHAR(255) UNIQUE,
     molecule VARCHAR(255),
