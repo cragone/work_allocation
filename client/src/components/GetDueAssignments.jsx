@@ -18,7 +18,24 @@ const GetDueAssigments = () => {
 
     return (
         <div>
-            {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+            {data &&
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assignment Title</th>
+                        <th>Original Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(data.title).map((key, index) =>(
+                        <tr key={index}>
+                            <td>{data.title[key]}</td>
+                            <td>{data.original_deadline[key]}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table> 
+            }
         </div>
     );
 };
