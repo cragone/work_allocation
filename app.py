@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from functions.dataControls import get_assignment_name, get_assigment_due_date
 import pandas as pd
 
+
 # Load the .env
 load_dotenv()
 
@@ -20,6 +21,8 @@ def frontpageassignments():
     print(data)
 
     return data.to_json(), 200
+
+
 
 @app.route("/home")
 def index():
