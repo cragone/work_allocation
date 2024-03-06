@@ -1,11 +1,11 @@
 import React from "react";
-import GetDataButton from "../components/GetDataButton";
+import GetDueAssigments from "../components/GetDueAssignments";
 
 const HomePage = () => {
   return (
     <div>
       <h1>Welcome to My App</h1>
-      <GetDataButton />
+      <GetDueAssigments />
       <p>This is the homepage.</p>
     </div>
   );

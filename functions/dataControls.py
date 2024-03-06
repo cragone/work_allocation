@@ -23,19 +23,32 @@ def data_engine():
     
     return engine
 
-def get_data_from_database():
+def get_assignment_name():
     
     engine = data_engine()
-    
-    query = "SELECT * FROM work_instance"
-    
+
+    query = "SELECT title FROM work_instance WHERE completed = FALSE"
+
     df = pd.read_sql_query(query, engine)
-    
-    #closes the engine
+
     engine.dispose()
-    
+
     return df
 
-data = get_data_from_database()
+def get_assigment_due_date():
 
-print(data)
+    engine = data_engine()
+
+    query = "SELECT original_deadline FROM work_instance WHERE completed = FALSE"
+
+    df = pd.read_sql_query(query, engine)
+
+    engine.dispose()
+
+    return df
+
+assignments = get_assignment_name()
+due_date = get_assigment_due_date()
+
+print(assignments, due_date)
+

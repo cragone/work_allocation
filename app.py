@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
-from functions.dataControls import get_data_from_database
+from functions.dataControls import get_assignment_name, get_assigment_due_date
+import pandas as pd
 
 # Load the .env
 load_dotenv()
@@ -9,13 +10,16 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/api/downloads-excel', methods=['GET'])
-def download_excel():
-    data = get_data_from_database()
-    
+@app.route('/api/frontpageassignments', methods=['GET'])
+def frontpageassignments():
+    assigments = get_assignment_name()
+    due_date = get_assigment_due_date()
+
+    data = pd.concat([assigments, due_date], axis=1)
+
     print(data)
-    
-    return str(data), 200
+
+    return data.to_json(), 200
 
 @app.route("/home")
 def index():
