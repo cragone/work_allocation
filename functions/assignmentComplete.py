@@ -1,4 +1,4 @@
-from engineCreator import data_engine, create_session
+from .engineCreator import data_engine, create_session
 from sqlalchemy import text
 
 

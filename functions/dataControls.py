@@ -1,5 +1,5 @@
 import pandas as pd
-from engineCreator import data_engine
+from .engineCreator import data_engine
 
 
 def get_assignment_name():
