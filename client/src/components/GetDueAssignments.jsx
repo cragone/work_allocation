@@ -19,7 +19,7 @@ const GetDueAssigments = () => {
     return (
         <div>
             {data &&
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Assignment Title</th>

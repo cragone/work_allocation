@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import HomePage from './containers/HomePage'; // Corrected import path
-import './App.css';
-import 'tailwindcss/tailwind.css'
 
 function App() {
   return (

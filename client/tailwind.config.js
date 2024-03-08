@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./containers/HomePage.jsx"
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
@@ -9,4 +10,8 @@ export default {
   plugins: [
     require('daisyui'),
   ],
+
+  daisyui:{
+    themes:['corporate', 'nord', 'dark']
+  }
 }
