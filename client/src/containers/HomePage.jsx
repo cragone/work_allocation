@@ -1,6 +1,6 @@
 import React from "react";
 import GetDueAssigments from "../components/GetDueAssignments";
-import SubmitAssigments from "../components/SubmitAssignments"
+import SubmitAssigments from "../components/SubmitAssignments";
 
 const HomePage = () => {
   return (
