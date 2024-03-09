@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from functions.dataControls import get_assignment_name, get_assigment_due_date
 from functions.assignmentComplete import post_hours
+from functions.workCreator import create_work_instance
 import pandas as pd
 
 
@@ -34,7 +35,19 @@ def updatehours():
     print(response)
     return jsonify(response)
 
-
+#app route for creating a work instance
+@app.route('/api/creatework', methods=['POST'])
+def creatework():
+    data = request.get_json()
+    type = data.get('type')
+    title = data.get('title')
+    molecule = data.get('molecule')
+    author = data.get('author')
+    original_deadline = data.get('original_deadline')
+    notes = data.get('notes')
+    response = create_work_instance(type, title, molecule, author, original_deadline, notes)
+    print(response)
+    return jsonify(response)
 
 @app.route("/home")
 def index():

@@ -12,6 +12,30 @@ export default {
   ],
 
   daisyui:{
-    themes:['corporate', 'nord', 'dark']
+    themes:['corporate', 'nord', 'dark',
+  
+    {
+      regeneron: {
+      
+        "primary": "#065BAA",
+              
+        "secondary": "#40B4E5",
+              
+        "accent": "#78be20",
+              
+        "neutral": "#080808",
+              
+        "base-100": "#ffffff",
+              
+        "info": "#f0abfc",
+              
+        "success": "#78be20",
+              
+        "warning": "#fde68a",
+              
+        "error": "#d50057",
+      },
+    },
+  ]
   }
 }

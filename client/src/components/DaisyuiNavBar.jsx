@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-primary text-white">
       <div className="flex-1">
         <a href="https://ron.regeneron.com/home" className="btn btn-ghost text-xl">Regeneron</a>
       </div>
@@ -14,9 +14,10 @@ const Navbar = () => {
               <summary>
                 Search List
               </summary>
-              <ul className="p-2 bg-base-100 rounded-t-none">
+              <ul className="p-2 bg-primary text-white rounded-t-none">
                 <li><a href="/Graphing">Graphing</a></li>
                 <li><a href="/Unassigned">Unassigned</a></li>
+                <li><a href="/Investigations">Investigations</a></li>
               </ul>
             </details>
           </li>
