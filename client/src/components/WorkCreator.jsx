@@ -23,6 +23,12 @@ const WorkCreator = () => {
         axios.post(`http://${apiRoute}:5000/api/creatework`, payload)
         .then((response) => {
             console.log(response.data); 
+            setType("")
+            setTitle("")
+            setMolecule("")
+            setAuthor("")
+            setOriginal_deadline("")
+            setNotes("")
         })
         .catch((error) => {
             console.log(error)

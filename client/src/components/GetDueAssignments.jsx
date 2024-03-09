@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const GetDueAssigments = () => {
+const GetDueAssigments = (props) => {
     const apiRoute = "localhost"
     const [data, setData] = useState(null);
+    
+    const {reloader} = props
 
     useEffect(() => {
         axios.get(`http://${apiRoute}:5000/api/frontpageassignments`)
@@ -14,19 +16,20 @@ const GetDueAssigments = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, []); // Empty array means this effect runs once on mount
+    }, [reloader]); // Empty array means this effect runs once on mount
 
     return (
         <div>
+            <div className="h-[200px] overflow-scroll">
             {data &&
             <table className="table">
-                <thead>
+                <thead className="sticky top-0 bg-base-100 shadow-sm">
                     <tr>
                         <th>Assignment Title</th>
                         <th>Original Deadline</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {Object.keys(data.title).map((key, index) =>(
                         <tr key={index}>
                             <td>{data.title[key]}</td>
@@ -36,6 +39,7 @@ const GetDueAssigments = () => {
                 </tbody>
             </table> 
             }
+            </div>
         </div>
     );
 };

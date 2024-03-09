@@ -2,7 +2,7 @@ from .engineCreator import data_engine, create_session
 from sqlalchemy import text
 
 
-def post_hours(title, hours):
+def post_hours(title, hours, completed=True):
     engine = data_engine()
     Session = create_session(engine)
     session = Session()
@@ -14,7 +14,7 @@ def post_hours(title, hours):
             return {"message": "Title not found in the database"}, 404
 
         # Execute the UPDATE statement
-        result = session.execute(text("UPDATE work_instance SET hours=:hours WHERE title=:title"), {'hours': hours, 'title': title})
+        result = session.execute(text("UPDATE work_instance SET completed=:completed, hours=:hours WHERE title=:title"), {'completed': completed,'hours': hours, 'title': title})
         session.commit()
 
         # Check the number of rows affected
