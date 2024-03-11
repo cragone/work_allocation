@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from functions.dataControls import get_incomplete
 from functions.assignmentComplete import post_hours
 from functions.workCreator import create_work_instance
-from functions.unassigned import see_unassigned
+from functions.unassigned import see_unassigned, set_assignee
 
 
 # Load the .env
@@ -53,7 +53,16 @@ def creatework():
 def displayunassigned():
     data = see_unassigned()
     print(data)
-    return data.to_json(), 200
+    return data.to_json(orient='records'), 200
+
+@app.route('/api/updateassignee', methods=['POST'])
+def updateassignee():
+    data = request.get_json()
+    title = data.get('title')
+    assigned_user = data.get('assigned_user')
+    response = set_assignee(title, assigned_user)
+    print(response)
+    return jsonify(response)
 
 
 
